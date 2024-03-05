@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SoftwareEngineering2Einzelbeispiel" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#000000</item>
     </style>
 
     <style name="Theme.SoftwareEngineering2Einzelbeispiel" parent="Base.Theme.SoftwareEngineering2Einzelbeispiel" />
