@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 public class Startseite extends AppCompatActivity {
     //Initialisierungen von Button, Eingabefeld und Serverantwort
@@ -56,7 +57,7 @@ public class Startseite extends AppCompatActivity {
                     out.newLine();
                     out.flush();
 
-                    final String response = in.readLine();
+                    String response = in.readLine() + "\n\n" + getModifiedMatNR();
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -81,5 +82,27 @@ public class Startseite extends AppCompatActivity {
         });
 
         thread.start();
+    }
+
+    private static String getModifiedMatNR() {
+        String matrikelnummer = eingabeMatNR.getText().toString();
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < matrikelnummer.length(); i++) {
+            char c = matrikelnummer.charAt(i);
+            if (Character.isDigit(c)) {
+                int digit = Character.getNumericValue(c);
+                if (i % 2 == 1) { // Jede zweite Ziffer
+                    char asciiChar = (char) ('a' + digit);
+                    result.append(asciiChar);
+                } else {
+                    result.append(c);
+                }
+            } else {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
     }
 }
