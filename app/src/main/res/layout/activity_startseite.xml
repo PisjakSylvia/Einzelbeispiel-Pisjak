@@ -6,13 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper2"
     tools:context=".Startseite">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background=""
-        android:id="@+id/overlayView"
-        tools:ignore="UselessParent"
-    />
+
 
     <TextView
         android:id="@+id/textMatNR"
