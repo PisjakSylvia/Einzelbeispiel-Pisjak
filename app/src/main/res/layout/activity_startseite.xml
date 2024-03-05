@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.5" />
     <!-- TextView zur Anzeige der Serverantwort -->
     <TextView
-        android:id="@+id/responseTextView"
+        android:id="@+id/serverAntwort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
