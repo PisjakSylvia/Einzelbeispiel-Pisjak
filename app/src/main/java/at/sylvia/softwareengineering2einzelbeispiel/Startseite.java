@@ -22,8 +22,9 @@ public class Startseite extends AppCompatActivity {
     //Initialisierungen von Button, Eingabefeld und Serverantwort
     private static EditText eingabeMatNR;
     private Button sendButton;
-    private Button modifyMatNR;
+    private Button modifyMatNRButton;
     private TextView serverAntwort;
+    private TextView modifiedMatNRView;
     private static final String SERVER_Domain = "se2-submission.aau.at";
     private static final int SERVER_Port = 20080;
 
@@ -42,11 +43,14 @@ public class Startseite extends AppCompatActivity {
                 getMatBerechnung();
             }
         });
-        modifyMatNR = findViewById(R.id.modifyMatNR);
-        modifyMatNR.setOnClickListener(new View.OnClickListener() {
+
+        modifyMatNRButton = findViewById(R.id.modifyMatNR);
+        modifiedMatNRView = findViewById(R.id.modifiedMatNR);
+        modifyMatNRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getModifiedMatNR();
+                String modifiedMatNRText = getModifiedMatNR();
+                modifiedMatNRView.setText(modifiedMatNRText);
             }
         });
 
@@ -67,7 +71,7 @@ public class Startseite extends AppCompatActivity {
                     out.newLine();
                     out.flush();
 
-                    String response = in.readLine() + "\n\n" + getModifiedMatNR();
+                    String response = in.readLine();
 
                     runOnUiThread(new Runnable() {
                         @Override
