@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
-        android:layout_marginBottom="131dp"
+        android:layout_marginBottom="47dp"
         android:backgroundTint="#3C9C6F"
         android:text="ABSCHICKEN"
         android:textColorHighlight="#3C9C6F"
@@ -50,7 +50,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/modifiedMatNR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eingabeMatNR" />
 
