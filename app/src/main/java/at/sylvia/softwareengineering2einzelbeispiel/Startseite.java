@@ -41,6 +41,7 @@ public class Startseite extends AppCompatActivity {
                 getMatBerechnung();
             }
         });
+
     }
 
     private void getMatBerechnung() {
