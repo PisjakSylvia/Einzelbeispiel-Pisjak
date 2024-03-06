@@ -45,9 +45,9 @@
         android:layout_marginBottom="131dp"
         android:backgroundTint="#3C9C6F"
         android:text="ABSCHICKEN"
-        android:textSize="18sp"
         android:textColorHighlight="#3C9C6F"
         android:textColorLink="#3C9C6F"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/modifiedMatNR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -70,8 +70,9 @@
 
     <TextView
         android:id="@+id/modifiedMatNR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/modifyMatNR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
