@@ -22,6 +22,7 @@ public class Startseite extends AppCompatActivity {
     //Initialisierungen von Button, Eingabefeld und Serverantwort
     private static EditText eingabeMatNR;
     private Button sendButton;
+    private Button modifyMatNR;
     private TextView serverAntwort;
     private static final String SERVER_Domain = "se2-submission.aau.at";
     private static final int SERVER_Port = 20080;
@@ -41,6 +42,14 @@ public class Startseite extends AppCompatActivity {
                 getMatBerechnung();
             }
         });
+        modifyMatNR = findViewById(R.id.modifyMatNR);
+        modifyMatNR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getModifiedMatNR();
+            }
+        });
+
 
     }
 
