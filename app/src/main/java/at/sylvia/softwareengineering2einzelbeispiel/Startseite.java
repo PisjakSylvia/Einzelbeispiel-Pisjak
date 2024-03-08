@@ -126,7 +126,11 @@ public class Startseite extends AppCompatActivity {
         });
         thread.start();     //Der Thread wird gestartet, um die Netzwerkanfrage auszuführe
     }
-
+    /**
+     * Diese Methode modifiziert die eingegebene Matrikelnummer gemäß den Anforderungen von 2.2.
+     * Jede zweite Ziffer wird durch das entsprechende ASCII-Zeichen ersetzt.
+     * @return Die modifizierte Matrikelnummer als Zeichenfolge.
+     */
     private static String getModifiedMatNR() {
         String matrikelnummer = eingabeMatNR.getText().toString();
         StringBuilder result = new StringBuilder();
