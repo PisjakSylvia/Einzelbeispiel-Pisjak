@@ -57,14 +57,15 @@ public class Startseite extends AppCompatActivity {
         modifyMatNRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**
+                 * Die modifizierte Matrikelnummer wird in neuer String Variable gespeichert,
+                 * und dann wird der Text der TextView auf diesen gesetzt.
+                 */
                 String modifiedMatNRText = getModifiedMatNR();
                 modifiedMatNRView.setText(modifiedMatNRText);
             }
         });
-
-
     }
-
     private void getMatBerechnung() {
         final String matrikelnummer = eingabeMatNR.getText().toString();
         Thread thread = new Thread(new Runnable() {
