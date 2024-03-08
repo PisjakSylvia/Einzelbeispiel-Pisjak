@@ -66,35 +66,56 @@ public class Startseite extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * getMatBerechnung() dient zur Lösung von Aufgabe 2.1, sie stellt zuerst die
+     * Verbindung zum Server her, und gibt dessen Nachricht aus, wenn es sich um
+     * eine gültige Matrikelnummer handelt, ansonsten wird eine Nachricht
+     * ausgegeben, dass sie nicht richtig war.
+     */
     private void getMatBerechnung() {
         final String matrikelnummer = eingabeMatNR.getText().toString();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
+                    //Eine Socket-Verbindung mit der Server-Domain und dem Port wird hergestellt
                     Socket socket = new Socket(SERVER_Domain, SERVER_Port);
+                    //BufferedWriter wird verwendet, um ausgehende Daten zu schreiben, indem es einen OutputStreamWriter verwendet, um den OutputStream des Sockets zu wrappen
                     BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                    //BufferedReader wird verwendet, um eingehende Daten zu lesen, indem es einen InputStreamReader verwendet, um den InputStream des Sockets zu wrappen
                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-                    out.write(matrikelnummer);
-                    out.newLine();
-                    out.flush();
+                    out.write(matrikelnummer);      //Matrikelnummer wird an Server gesendet
+                    out.newLine();      //fügt Zeilenumbruch ein -> um Nachricht an Server zu beenden
+                    out.flush();        //leert den Puffer und sendet Daten an Server
 
-                    String response = in.readLine();
-
+                    String response = in.readLine();    //Antwort vom Server wird gelesen und gespeichert
+                    /**
+                     * runOnUiThread() wird verwendet, um UI-Aktualisierungen im Haupt-Thread auszuführen,
+                     * da UI-Operationen nur im Haupt-Thread ausgeführt werden dürfen
+                     */
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            serverAntwort.setText(response);
+                            serverAntwort.setText(response);    //gespeicherte Serverantword wir in der TextView ausgegeben
                         }
                     });
-
+                    //Verbindungen werden geschlossen, nachdem Kommunikation fertig ist.
                     out.close();
                     in.close();
                     socket.close();
                 } catch (Exception e) {
+                    //wenn Fehler -> Fehlermeldung
                     e.printStackTrace();
                     runOnUiThread(new Runnable() {
+                        /**
+                         * Toast ist eine Benachrichtigung -> teilt hier einen Fehler mit.
+                         * Startseite.this bezieht sich auf aktuelle Instanz von Startseite,
+                         * in welcher der Toast angezeigt werden soll.
+                         * Toast.length_short gibt Dauer der Ausgabe an.
+                         * show() dient dazu, den Toast am Bildschirm auszugeben.
+                         */
                         @Override
                         public void run() {
                             Toast.makeText(Startseite.this, "Fehler beim Senden der Daten", Toast.LENGTH_SHORT).show();
@@ -103,8 +124,7 @@ public class Startseite extends AppCompatActivity {
                 }
             }
         });
-
-        thread.start();
+        thread.start();     //Der Thread wird gestartet, um die Netzwerkanfrage auszuführe
     }
 
     private static String getModifiedMatNR() {
@@ -125,7 +145,6 @@ public class Startseite extends AppCompatActivity {
                 result.append(c);
             }
         }
-
         return result.toString();
     }
 }
