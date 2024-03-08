@@ -32,7 +32,6 @@ public class Startseite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startseite);
-
         /**
          * Mit findViewById() findet man ein View-Element (im XML) mit entsprechender ID
          * und wenn man dies einer Variable zuweißt, dann kann diese verwendet werden,
@@ -42,7 +41,10 @@ public class Startseite extends AppCompatActivity {
         eingabeMatNR = findViewById(R.id.eingabeMatNR);
         sendButton = findViewById(R.id.sendButton);
         serverAntwort = findViewById(R.id.serverAntwort);
-
+        /**
+         * Ein OnClickListener ist eine Schnittstelle, die es ermöglicht,
+         * auf Klickereignisse auf einem View-Element zu reagieren.
+         */
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {   //Mit klick auf den Button wird getMatBerechnung() aufgerufen -> Aufgabe 2.1
