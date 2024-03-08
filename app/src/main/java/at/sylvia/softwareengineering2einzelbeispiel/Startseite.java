@@ -142,7 +142,7 @@ public class Startseite extends AppCompatActivity {
                     result.append(c);
                 }
             } else {
-                result.append(c);
+                return "Ungültige Eingabe";
             }
         }
         return result.toString();
