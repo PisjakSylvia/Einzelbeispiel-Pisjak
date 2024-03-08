@@ -19,7 +19,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 public class Startseite extends AppCompatActivity {
-    //Initialisierungen von Button, Eingabefeld und Serverantwort
+    //Initialisierungen von Buttons, Eingabefelder und Serverantwort
     private static EditText eingabeMatNR;
     private Button sendButton;
     private Button modifyMatNRButton;
@@ -33,13 +33,19 @@ public class Startseite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startseite);
 
+        /**
+         * Mit findViewById() findet man ein View-Element (im XML) mit entsprechender ID
+         * und wenn man dies einer Variable zuweißt, dann kann diese verwendet werden,
+         * um auf das EditText-Element zuzugreifen. Es wird die Referenz übergeben.
+         * R.id = Resource-ID
+         */
         eingabeMatNR = findViewById(R.id.eingabeMatNR);
         sendButton = findViewById(R.id.sendButton);
         serverAntwort = findViewById(R.id.serverAntwort);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {   //Mit klick auf den Button wird getMatBerechnung() aufgerufen -> Aufgabe 2.1
                 getMatBerechnung();
             }
         });
