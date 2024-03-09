@@ -134,7 +134,7 @@ public class Startseite extends AppCompatActivity {
     private static String getModifiedMatNR() {
         String matrikelnummer = eingabeMatNR.getText().toString();
         StringBuilder result = new StringBuilder();
-
+        if(matrikelnummer.length() < 8)return "Ungültige Eingabe!";
         for (int i = 0; i < matrikelnummer.length(); i++) {
             char c = matrikelnummer.charAt(i);
             if (Character.isDigit(c)) {
@@ -146,7 +146,7 @@ public class Startseite extends AppCompatActivity {
                     result.append(c);
                 }
             } else {
-                return "Ungültige Eingabe";
+                return "Ungültige Eingabe!";
             }
         }
         return result.toString();
